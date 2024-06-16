@@ -15,6 +15,7 @@
 
         private void InitializeComponent()
         {
+            // Ініціалізація компонентів форми
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
@@ -75,7 +76,7 @@
             this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage1.Size = new System.Drawing.Size(768, 400);
             this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Database Connection";
+            this.tabPage1.Text = "Підключення до бази даних";
             this.tabPage1.UseVisualStyleBackColor = true;
 
             // 
@@ -91,7 +92,7 @@
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
             this.tabPage2.Size = new System.Drawing.Size(768, 400);
             this.tabPage2.TabIndex = 1;
-            this.tabPage2.Text = "Data Management";
+            this.tabPage2.Text = "Управління даними";
             this.tabPage2.UseVisualStyleBackColor = true;
 
             // 
@@ -150,7 +151,7 @@
             this.btnSaveConnection.Name = "btnSaveConnection";
             this.btnSaveConnection.Size = new System.Drawing.Size(120, 30);
             this.btnSaveConnection.TabIndex = 6;
-            this.btnSaveConnection.Text = "Save Connection";
+            this.btnSaveConnection.Text = "Зберегти з'єднання";
             this.btnSaveConnection.UseVisualStyleBackColor = true;
             this.btnSaveConnection.Click += new System.EventHandler(this.btnSaveConnection_Click);
 
@@ -161,7 +162,7 @@
             this.btnLoadData.Name = "btnLoadData";
             this.btnLoadData.Size = new System.Drawing.Size(120, 30);
             this.btnLoadData.TabIndex = 7;
-            this.btnLoadData.Text = "Load Data";
+            this.btnLoadData.Text = "Завантажити дані";
             this.btnLoadData.UseVisualStyleBackColor = true;
             this.btnLoadData.Click += new System.EventHandler(this.btnLoadData_Click);
 
@@ -172,7 +173,7 @@
             this.btnSelectTemplate.Name = "btnSelectTemplate";
             this.btnSelectTemplate.Size = new System.Drawing.Size(120, 30);
             this.btnSelectTemplate.TabIndex = 8;
-            this.btnSelectTemplate.Text = "Select Template";
+            this.btnSelectTemplate.Text = "Вибрати шаблон";
             this.btnSelectTemplate.UseVisualStyleBackColor = true;
             this.btnSelectTemplate.Click += new System.EventHandler(this.btnSelectTemplate_Click);
 
@@ -183,7 +184,7 @@
             this.btnSelectOutputFolder.Name = "btnSelectOutputFolder";
             this.btnSelectOutputFolder.Size = new System.Drawing.Size(120, 30);
             this.btnSelectOutputFolder.TabIndex = 9;
-            this.btnSelectOutputFolder.Text = "Select Output Folder";
+            this.btnSelectOutputFolder.Text = "Вибрати папку виводу";
             this.btnSelectOutputFolder.UseVisualStyleBackColor = true;
             this.btnSelectOutputFolder.Click += new System.EventHandler(this.btnSelectOutputFolder_Click);
 
@@ -194,7 +195,7 @@
             this.btnGenerateDocuments.Name = "btnGenerateDocuments";
             this.btnGenerateDocuments.Size = new System.Drawing.Size(250, 30);
             this.btnGenerateDocuments.TabIndex = 10;
-            this.btnGenerateDocuments.Text = "Generate Documents";
+            this.btnGenerateDocuments.Text = "Генерувати документи";
             this.btnGenerateDocuments.UseVisualStyleBackColor = true;
             this.btnGenerateDocuments.Click += new System.EventHandler(this.btnGenerateDocuments_Click);
 
@@ -213,9 +214,20 @@
             this.lblHost.AutoSize = true;
             this.lblHost.Location = new System.Drawing.Point(15, 18);
             this.lblHost.Name = "lblHost";
-            this.lblHost.Size = new System.Drawing.Size(32, 13);
+            this.lblHost.Size = new System.Drawing.Size(34, 13);
             this.lblHost.TabIndex = 12;
-            this.lblHost.Text = "Host:";
+            this.lblHost.Text = "Хост:";
+                        // Додавання коментарів до елементів форми та їх властивостей
+
+            // 
+            // lblHost
+            // 
+            this.lblHost.AutoSize = true;
+            this.lblHost.Location = new System.Drawing.Point(15, 18);
+            this.lblHost.Name = "lblHost";
+            this.lblHost.Size = new System.Drawing.Size(34, 13);
+            this.lblHost.TabIndex = 12;
+            this.lblHost.Text = "Хост:";
 
             // 
             // lblUsername
@@ -225,7 +237,7 @@
             this.lblUsername.Name = "lblUsername";
             this.lblUsername.Size = new System.Drawing.Size(58, 13);
             this.lblUsername.TabIndex = 13;
-            this.lblUsername.Text = "Username:";
+            this.lblUsername.Text = "Ім'я користувача:";
 
             // 
             // lblPassword
@@ -233,9 +245,9 @@
             this.lblPassword.AutoSize = true;
             this.lblPassword.Location = new System.Drawing.Point(15, 78);
             this.lblPassword.Name = "lblPassword";
-            this.lblPassword.Size = new System.Drawing.Size(56, 13);
+            this.lblPassword.Size = new System.Drawing.Size(48, 13);
             this.lblPassword.TabIndex = 14;
-            this.lblPassword.Text = "Password:";
+            this.lblPassword.Text = "Пароль:";
 
             // 
             // lblDatabase
@@ -243,9 +255,9 @@
             this.lblDatabase.AutoSize = true;
             this.lblDatabase.Location = new System.Drawing.Point(15, 108);
             this.lblDatabase.Name = "lblDatabase";
-            this.lblDatabase.Size = new System.Drawing.Size(56, 13);
+            this.lblDatabase.Size = new System.Drawing.Size(48, 13);
             this.lblDatabase.TabIndex = 15;
-            this.lblDatabase.Text = "Database:";
+            this.lblDatabase.Text = "База даних:";
 
             // 
             // lblTableName
@@ -253,9 +265,9 @@
             this.lblTableName.AutoSize = true;
             this.lblTableName.Location = new System.Drawing.Point(15, 138);
             this.lblTableName.Name = "lblTableName";
-            this.lblTableName.Size = new System.Drawing.Size(69, 13);
+            this.lblTableName.Size = new System.Drawing.Size(77, 13);
             this.lblTableName.TabIndex = 16;
-            this.lblTableName.Text = "Table Name:";
+            this.lblTableName.Text = "Назва таблиці:";
 
             // 
             // lblSchemaName
@@ -263,9 +275,9 @@
             this.lblSchemaName.AutoSize = true;
             this.lblSchemaName.Location = new System.Drawing.Point(15, 168);
             this.lblSchemaName.Name = "lblSchemaName";
-            this.lblSchemaName.Size = new System.Drawing.Size(79, 13);
+            this.lblSchemaName.Size = new System.Drawing.Size(88, 13);
             this.lblSchemaName.TabIndex = 17;
-            this.lblSchemaName.Text = "Schema Name:";
+            this.lblSchemaName.Text = "Назва схеми:";
 
             // 
             // Form1
@@ -273,8 +285,9 @@
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tabControl1);
             this.Name = "Form1";
-            this.Text = "ECTS Document Generator";
+            this.Text = "Генератор документів ECTS";
 
+            // Включення розгортання компонентів
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
@@ -283,6 +296,7 @@
             this.ResumeLayout(false);
         }
 
+        // Об'єкти управління віджетами на формі
         private System.Windows.Forms.TabControl tabControl1;
         private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;

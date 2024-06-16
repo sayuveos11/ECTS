@@ -11,10 +11,10 @@ namespace ECTS
 {
     public partial class Form1 : Form
     {
-        private string templatePath;
-        private string outputFolderPath;
-        private string connectionString;
-        private int fileCounter = 1;
+        private string templatePath;  // шлях до шаблону документа
+        private string outputFolderPath;  // шлях до папки для збереження результатів
+        private string connectionString;  // рядок підключення до бази даних
+        private int fileCounter = 1;  // лічильник файлів для нумерації
 
         public Form1()
         {
@@ -23,36 +23,36 @@ namespace ECTS
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            // Initialize TabControl and Tabs
+            // Ініціалізація TabControl та вкладок
             TabControl tabControl = new TabControl();
             tabControl.Dock = DockStyle.Fill;
 
-            TabPage tabPage1 = new TabPage("Database Connection");
-            TabPage tabPage2 = new TabPage("Data Management");
+            TabPage tabPage1 = new TabPage("Підключення до БД");
+            TabPage tabPage2 = new TabPage("Управління даними");
 
             tabControl.TabPages.Add(tabPage1);
             tabControl.TabPages.Add(tabPage2);
 
             this.Controls.Add(tabControl);
 
-            // Database Connection Tab
+            // Вкладка "Підключення до БД"
             InitializeDatabaseConnectionTab(tabPage1);
 
-            // Data Management Tab
+            // Вкладка "Управління даними"
             InitializeDataManagementTab(tabPage2);
         }
 
         private void InitializeDatabaseConnectionTab(TabPage tabPage)
         {
-            Label lblHost = new Label { Text = "Host:", Location = new System.Drawing.Point(20, 20) };
+            Label lblHost = new Label { Text = "Хост:", Location = new System.Drawing.Point(20, 20) };
             TextBox txtHost = new TextBox { Name = "txtHost", Location = new System.Drawing.Point(120, 20) };
-            Label lblUsername = new Label { Text = "Username:", Location = new System.Drawing.Point(20, 60) };
+            Label lblUsername = new Label { Text = "Користувач:", Location = new System.Drawing.Point(20, 60) };
             TextBox txtUsername = new TextBox { Name = "txtUsername", Location = new System.Drawing.Point(120, 60) };
-            Label lblPassword = new Label { Text = "Password:", Location = new System.Drawing.Point(20, 100) };
+            Label lblPassword = new Label { Text = "Пароль:", Location = new System.Drawing.Point(20, 100) };
             TextBox txtPassword = new TextBox { Name = "txtPassword", Location = new System.Drawing.Point(120, 100) };
-            Label lblDatabase = new Label { Text = "Database:", Location = new System.Drawing.Point(20, 140) };
+            Label lblDatabase = new Label { Text = "База даних:", Location = new System.Drawing.Point(20, 140) };
             TextBox txtDatabase = new TextBox { Name = "txtDatabase", Location = new System.Drawing.Point(120, 140) };
-            Button btnSaveConnection = new Button { Text = "Save Connection", Location = new System.Drawing.Point(120, 180) };
+            Button btnSaveConnection = new Button { Text = "Зберегти з'єднання", Location = new System.Drawing.Point(120, 180) };
             btnSaveConnection.Click += btnSaveConnection_Click;
 
             tabPage.Controls.Add(lblHost);
@@ -68,26 +68,26 @@ namespace ECTS
 
         private void InitializeDataManagementTab(TabPage tabPage)
         {
-            Label lblSchema = new Label { Text = "Schema:", Location = new System.Drawing.Point(20, 20) };
+            Label lblSchema = new Label { Text = "Схема:", Location = new System.Drawing.Point(20, 20) };
             TextBox txtSchemaName = new TextBox { Name = "txtSchemaName", Location = new System.Drawing.Point(120, 20) };
-            Label lblTable = new Label { Text = "Table:", Location = new System.Drawing.Point(20, 60) };
+            Label lblTable = new Label { Text = "Таблиця:", Location = new System.Drawing.Point(20, 60) };
             TextBox txtTableName = new TextBox { Name = "txtTableName", Location = new System.Drawing.Point(120, 60) };
-            Button btnLoadData = new Button { Text = "Load Data", Location = new System.Drawing.Point(120, 100) };
+            Button btnLoadData = new Button { Text = "Завантажити дані", Location = new System.Drawing.Point(120, 100) };
             btnLoadData.Click += btnLoadData_Click;
 
             DataGridView dataGridView1 = new DataGridView { Name = "dataGridView1", Location = new System.Drawing.Point(20, 140), Width = 500, Height = 200 };
-            Button btnAddRow = new Button { Text = "Add Row", Location = new System.Drawing.Point(20, 360) };
+            Button btnAddRow = new Button { Text = "Додати рядок", Location = new System.Drawing.Point(20, 360) };
             btnAddRow.Click += btnAddRow_Click;
-            Button btnDeleteRow = new Button { Text = "Delete Row", Location = new System.Drawing.Point(120, 360) };
+            Button btnDeleteRow = new Button { Text = "Видалити рядок", Location = new System.Drawing.Point(120, 360) };
             btnDeleteRow.Click += btnDeleteRow_Click;
-            Button btnUpdateRow = new Button { Text = "Update Row", Location = new System.Drawing.Point(220, 360) };
+            Button btnUpdateRow = new Button { Text = "Оновити рядок", Location = new System.Drawing.Point(220, 360) };
             btnUpdateRow.Click += btnUpdateRow_Click;
 
-            Button btnSelectTemplate = new Button { Text = "Select Template", Location = new System.Drawing.Point(20, 400) };
+            Button btnSelectTemplate = new Button { Text = "Вибрати шаблон", Location = new System.Drawing.Point(20, 400) };
             btnSelectTemplate.Click += btnSelectTemplate_Click;
-            Button btnSelectOutputFolder = new Button { Text = "Select Output Folder", Location = new System.Drawing.Point(140, 400) };
+            Button btnSelectOutputFolder = new Button { Text = "Вибрати папку виводу", Location = new System.Drawing.Point(140, 400) };
             btnSelectOutputFolder.Click += btnSelectOutputFolder_Click;
-            Button btnGenerateDocuments = new Button { Text = "Generate Documents", Location = new System.Drawing.Point(260, 400) };
+            Button btnGenerateDocuments = new Button { Text = "Створити документи", Location = new System.Drawing.Point(260, 400) };
             btnGenerateDocuments.Click += btnGenerateDocuments_Click;
 
             tabPage.Controls.Add(lblSchema);
@@ -103,6 +103,8 @@ namespace ECTS
             tabPage.Controls.Add(btnSelectOutputFolder);
             tabPage.Controls.Add(btnGenerateDocuments);
         }
+
+        // Збереження параметрів підключення до БД
         private void btnSaveConnection_Click(object sender, EventArgs e)
         {
             var tabPage = ((Button)sender).Parent as TabPage;
@@ -112,26 +114,27 @@ namespace ECTS
             var txtDatabase = tabPage.Controls["txtDatabase"] as TextBox;
 
             connectionString = $"Host={txtHost.Text};Username={txtUsername.Text};Password={txtPassword.Text};Database={txtDatabase.Text}";
-            MessageBox.Show("Database connection settings saved.", "Information", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            MessageBox.Show("Налаштування підключення до бази даних збережено.", "Інформація", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
 
+        // Завантаження даних з бази до DataGridView
         private void btnLoadData_Click(object sender, EventArgs e)
         {
             try
             {
                 if (string.IsNullOrEmpty(connectionString))
                 {
-                    MessageBox.Show("Please save the database connection settings first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Спочатку збережіть налаштування підключення до бази даних.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
                 if (dataGridView1 == null)
                 {
-                    MessageBox.Show("DataGridView is not initialized.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("DataGridView не ініціалізована.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
-                // Proceed with loading data into DataGridView
+                // Продовжуємо з завантаженням даних до DataGridView
                 using (var conn = new NpgsqlConnection(connectionString))
                 {
                     conn.Open();
@@ -147,46 +150,11 @@ namespace ECTS
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Помилка: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
-
-        private void LoadData(string schemaName, string tableName, DataGridView dataGridView)
-        {
-            try
-            {
-                if (string.IsNullOrEmpty(connectionString))
-                {
-                    MessageBox.Show("Please save the database connection settings first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (string.IsNullOrEmpty(schemaName) || string.IsNullOrEmpty(tableName))
-                {
-                    MessageBox.Show("Please enter the table and schema names.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                using (var conn = new NpgsqlConnection(connectionString))
-                {
-                    conn.Open();
-                    var cmdText = $"SELECT * FROM {schemaName}.{tableName}";
-                    using (var cmd = new NpgsqlCommand(cmdText, conn))
-                    using (var reader = cmd.ExecuteReader())
-                    {
-                        var dataTable = new DataTable();
-                        dataTable.Load(reader);
-                        dataGridView.DataSource = dataTable;
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-
+        // Додавання нового рядка в DataGridView
         private void btnAddRow_Click(object sender, EventArgs e)
         {
             var tabPage = ((Button)sender).Parent as TabPage;
@@ -199,6 +167,7 @@ namespace ECTS
             }
         }
 
+        // Видалення вибраного рядка з DataGridView
         private void btnDeleteRow_Click(object sender, EventArgs e)
         {
             var tabPage = ((Button)sender).Parent as TabPage;
@@ -214,23 +183,24 @@ namespace ECTS
             }
         }
 
+        // Оновлення даних в базі з DataGridView
         private void btnUpdateRow_Click(object sender, EventArgs e)
         {
             var tabPage = ((Button)sender).Parent as TabPage;
             var txtSchemaName = tabPage.Controls["txtSchemaName"] as TextBox;
             var txtTableName = tabPage.Controls["txtTableName"] as TextBox;
             var dataGridView1 = tabPage.Controls["dataGridView1"] as DataGridView;
-
             UpdateData(txtSchemaName.Text, txtTableName.Text, dataGridView1);
         }
 
+        // Оновлення даних в базі даних
         private void UpdateData(string schemaName, string tableName, DataGridView dataGridView)
         {
             try
             {
                 if (string.IsNullOrEmpty(connectionString))
                 {
-                    MessageBox.Show("Please save the database connection settings first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("Спочатку збережіть налаштування підключення до бази даних.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -260,27 +230,29 @@ namespace ECTS
                         }
                     }
                 }
-                MessageBox.Show("Data updated successfully.", "Success", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Дані успішно оновлено.", "Успіх", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Помилка: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // Вибір шаблону документа
         private void btnSelectTemplate_Click(object sender, EventArgs e)
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.Filter = "Word Documents|*.docx";
+                openFileDialog.Filter = "Документи Word|*.docx";
                 if (openFileDialog.ShowDialog() == DialogResult.OK)
                 {
                     templatePath = openFileDialog.FileName;
-                    MessageBox.Show("Template selected: " + templatePath, "Template Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Вибраний шаблон: " + templatePath, "Вибір шаблону", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
+        // Вибір папки для збереження результатів
         private void btnSelectOutputFolder_Click(object sender, EventArgs e)
         {
             using (FolderBrowserDialog folderBrowserDialog = new FolderBrowserDialog())
@@ -288,16 +260,17 @@ namespace ECTS
                 if (folderBrowserDialog.ShowDialog() == DialogResult.OK)
                 {
                     outputFolderPath = folderBrowserDialog.SelectedPath;
-                    MessageBox.Show("Output folder selected: " + outputFolderPath, "Folder Selection", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    MessageBox.Show("Вибрана папка для виводу: " + outputFolderPath, "Вибір папки", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }
         }
 
+        // Генерація документів на основі вибраного шаблону та даних з DataGridView
         private void btnGenerateDocuments_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(templatePath) || string.IsNullOrEmpty(outputFolderPath))
             {
-                MessageBox.Show("Please select the template and output folder first.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("Спочатку виберіть шаблон та папку для виводу.", "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -332,14 +305,15 @@ namespace ECTS
 
                     fileCounter++;
                 }
-                MessageBox.Show("Documents generated successfully.", "Completed", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                MessageBox.Show("Документи успішно згенеровано.", "Завершено", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Помилка: " + ex.Message, "Помилка", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
 
+        // Формування назви файлу з номером для унікальності
         private string GetNumberedFileName(string folderPath, string extension)
         {
             string fileName = Path.Combine(folderPath, $"{fileCounter}.{extension}");
@@ -351,6 +325,7 @@ namespace ECTS
             return fileName;
         }
 
+        // Заміна закладки у документі значенням
         private void ReplaceBookmarkWithValue(Word.Document doc, string bookmarkName, string value)
         {
             if (doc.Bookmarks.Exists(bookmarkName))
