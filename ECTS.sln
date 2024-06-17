@@ -5,16 +5,40 @@ VisualStudioVersion = 17.9.34728.123
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ECTS", "ECTS\ECTS.csproj", "{99FBE1EE-F0E3-4A7B-BEB8-269296257031}"
 EndProject
+Project("{911E67C6-3D85-4FCE-B560-20A9C3E3FF48}") = "kursova", "kursova.exe", "{9305697D-D295-4659-A624-52B9EE7BF973}"
+	ProjectSection(DebuggerProjectSystem) = preProject
+		PortSupplier = 00000000-0000-0000-0000-000000000000
+		Executable = C:\Users\kkall\source\repos\ects\kursova.exe
+		RemoteMachine = DESKTOP-ES0EE34
+		StartingDirectory = C:\Users\kkall\source\repos\ects
+		Environment = По умолчанию
+		LaunchingEngine = 00000000-0000-0000-0000-000000000000
+		UseLegacyDebugEngines = No
+		LaunchSQLEngine = No
+		AttachLaunchAction = No
+		IORedirection = Auto
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Debug|x86.Build.0 = Debug|Any CPU
 		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Release|x86.ActiveCfg = Release|Any CPU
+		{99FBE1EE-F0E3-4A7B-BEB8-269296257031}.Release|x86.Build.0 = Release|Any CPU
+		{9305697D-D295-4659-A624-52B9EE7BF973}.Debug|Any CPU.ActiveCfg = Release|x86
+		{9305697D-D295-4659-A624-52B9EE7BF973}.Debug|x86.ActiveCfg = Release|x86
+		{9305697D-D295-4659-A624-52B9EE7BF973}.Release|Any CPU.ActiveCfg = Release|x86
+		{9305697D-D295-4659-A624-52B9EE7BF973}.Release|x86.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
