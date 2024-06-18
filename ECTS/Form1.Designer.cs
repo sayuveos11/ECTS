@@ -30,6 +30,9 @@
             this.btnSelectTemplate = new System.Windows.Forms.Button();
             this.btnSelectOutputFolder = new System.Windows.Forms.Button();
             this.btnGenerateDocuments = new System.Windows.Forms.Button();
+            this.btnAddRow = new System.Windows.Forms.Button();
+            this.btnDeleteRow = new System.Windows.Forms.Button();
+            this.btnUpdateRow = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.lblHost = new System.Windows.Forms.Label();
             this.lblUsername = new System.Windows.Forms.Label();
@@ -37,6 +40,7 @@
             this.lblDatabase = new System.Windows.Forms.Label();
             this.lblTableName = new System.Windows.Forms.Label();
             this.lblSchemaName = new System.Windows.Forms.Label();
+            
 
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
@@ -94,6 +98,10 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "Управління даними";
             this.tabPage2.UseVisualStyleBackColor = true;
+            this.tabPage2.Controls.Add(this.btnAddRow);
+            this.tabPage2.Controls.Add(this.btnDeleteRow);
+            this.tabPage2.Controls.Add(this.btnUpdateRow);
+
 
             // 
             // txtHost
@@ -188,6 +196,27 @@
             this.btnSelectOutputFolder.UseVisualStyleBackColor = true;
             this.btnSelectOutputFolder.Click += new System.EventHandler(this.btnSelectOutputFolder_Click);
 
+            //
+            // btnAddRow
+            //
+            this.btnAddRow.Text = "Додати рядок";
+            this.btnAddRow.Location = new System.Drawing.Point(20, 360);
+            this.btnAddRow.Click += new System.EventHandler(this.btnAddRow_Click);
+
+            //
+            // btnDeleteRow
+            //
+            this.btnDeleteRow.Text = "Видалити рядок";
+            this.btnDeleteRow.Location = new System.Drawing.Point(120, 360);
+            this.btnDeleteRow.Click += new System.EventHandler(this.btnDeleteRow_Click);
+
+            //
+            // btnUpdateRow
+            //
+            this.btnUpdateRow.Text = "Оновити рядок";
+            this.btnUpdateRow.Location = new System.Drawing.Point(220, 360);
+            this.btnUpdateRow.Click += new System.EventHandler(this.btnUpdateRow_Click);
+
             // 
             // btnGenerateDocuments
             // 
@@ -217,7 +246,7 @@
             this.lblHost.Size = new System.Drawing.Size(34, 13);
             this.lblHost.TabIndex = 12;
             this.lblHost.Text = "Хост:";
-                        // Додавання коментарів до елементів форми та їх властивостей
+            // Додавання коментарів до елементів форми та їх властивостей
 
             // 
             // lblHost
@@ -311,6 +340,9 @@
         private System.Windows.Forms.Button btnSelectTemplate;
         private System.Windows.Forms.Button btnSelectOutputFolder;
         private System.Windows.Forms.Button btnGenerateDocuments;
+        private System.Windows.Forms.Button btnAddRow;
+        private System.Windows.Forms.Button btnDeleteRow;
+        private System.Windows.Forms.Button btnUpdateRow;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label lblHost;
         private System.Windows.Forms.Label lblUsername;
@@ -318,5 +350,6 @@
         private System.Windows.Forms.Label lblDatabase;
         private System.Windows.Forms.Label lblTableName;
         private System.Windows.Forms.Label lblSchemaName;
+        
     }
 }
